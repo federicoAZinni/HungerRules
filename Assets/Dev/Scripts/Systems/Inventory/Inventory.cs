@@ -131,6 +131,19 @@ public class Inventory : MonoBehaviour
         return FreeSlotIndex();
     }
 
+    public bool HasItem(Item itemToSearch, int amount = 1)
+    {
+        foreach (InventorySlot slot in inventory)
+        {
+            if (slot.item != null && slot.item.itemData.id == itemToSearch.itemData.id && slot.amount >= amount)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }
 
 
